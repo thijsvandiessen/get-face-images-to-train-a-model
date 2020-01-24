@@ -16,6 +16,7 @@ export const initializeLogin = async (element) => {
 
   } catch {
     // try it again...
+    console.error('We have a login problem')
     location.reload();
   }
 
@@ -84,7 +85,6 @@ export const signinChanged = async (value) => {
 };
 
 export const getToken = async () => {
-
   // logged in: get a token
   const user = await googleAuthorization();
 
@@ -94,5 +94,6 @@ export const getToken = async () => {
   // store token in a global...
   window.data = response;
 
+  // and return the token object
   return response
 }

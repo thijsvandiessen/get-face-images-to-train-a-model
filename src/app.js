@@ -63,7 +63,7 @@ video.innerHTML = 'Video stream not available.' // Only displayed when the video
 video.id = 'video'; // why do we need this?
 video.addEventListener('play', () => {
   // loop the detector function with the required video and worker parameters
-  interval = setInterval(() => { detector.then((detect) => detect(video, detectionWorker, trainingsWorker)) }, 200);
+  interval = setInterval(() => { detector.then((detect) => detect(video, detectionWorker, trainingsWorker)) }, 100);
 });
 root.appendChild(video);
 
@@ -83,6 +83,7 @@ function pauseVideo() {
 const infoNodeContainer = document.createElement("div");
 infoNodeContainer.id = 'infoNodeContainer';
 const notificationNode = document.createElement("p");
+notificationNode.innerText = 'select a number to begin';
 root.appendChild(infoNodeContainer);
 infoNodeContainer.appendChild(notificationNode)
 
@@ -117,7 +118,7 @@ pausePlayButton.setAttribute('type', 'button');
 pausePlayButton.onclick = (event) => {
 
   if (event.target.innerText === 'play') {
-    event.target.innerText = 'stop'
+    event.target.innerText = 'stop';
     return playVideo();
   }
 
@@ -132,7 +133,9 @@ formContainer.appendChild(pausePlayButton);
 
 // create a footer with login buttons
 const footer = document.createElement('footer');
-root.appendChild(footer)
+root.appendChild(footer);
 
-// login functionality
-initializeLogin(footer);
+// async login functionality
+(async function () {
+  await initializeLogin(footer);
+})();
