@@ -1,0 +1,83 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+a {
+  color: white;
+}
+
+#app {
+  display: grid;
+  height: 100%;
+  min-height: 99vh;
+  font-size: 3rem;
+}
+
+#infoNodeContainer {
+  height: 10rem;
+}
+
+footer {
+  // margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  button {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+button {
+  margin: 1rem 0;
+  padding: 2rem;
+  font-size: 1em;
+  color: white;
+  background: black;
+  border: 0.1rem solid white;
+}
+
+input[type="number"] {
+  padding: 1rem;
+  font-size: 3rem;
+  height: 20rem;
+  color: white;
+  background-color: black;
+  border: none;
+  text-align: center;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  background: url("data:image/svg+xml,%3Csvg width='300' height='600' viewBox='0 0 300 600' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M150.222 0L315.445 165.222L307.667 173.001L150.222 15.5563L-7.22183 173.001L-15 165.222L150.222 0Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M150.222 80.6667L315.445 245.889L307.667 253.667L150.222 96.223L-7.22183 253.667L-15 245.889L150.222 80.6667Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M150.222 599.667L-15 434.445L-7.22182 426.667L150.222 584.111L307.667 426.667L315.445 434.445L150.222 599.667Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M150.222 519.001L-15 353.778L-7.22182 346L150.222 503.444L307.667 346L315.445 353.778L150.222 519.001Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Crect width='300' height='600' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A")
+    no-repeat center center;
+  background-size: contain;
+  width: 10rem;
+
+  margin: 0;
+  border-left: 1px solid white;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  bottom: 0;
+}
+
+input:-webkit-autofill {
+  background: black;
+}
