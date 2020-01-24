@@ -6,7 +6,7 @@ export const initializeLogin = async (element) => {
     // init: load login scope
     await gapi.load('auth2', () => {
       const auth = gapi.auth2.init({
-        client_id: `${process.env.client_id}.apps.googleusercontent.com`,
+        client_id: `837199060608-p9vaeb7s7e2mcd1ei990k9pm14qkpsfi.apps.googleusercontent.com`,
         scope: 'profile email https://www.googleapis.com/auth/cloud-platform',
       });
 
