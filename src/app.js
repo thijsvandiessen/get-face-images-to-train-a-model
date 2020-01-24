@@ -83,7 +83,7 @@ function pauseVideo() {
 const infoNodeContainer = document.createElement("div");
 infoNodeContainer.id = 'infoNodeContainer';
 const notificationNode = document.createElement("p");
-notificationNode.innerText = 'select a number to begin';
+notificationNode.innerText = 'select a number to begin'; // startup message
 root.appendChild(infoNodeContainer);
 infoNodeContainer.appendChild(notificationNode)
 
