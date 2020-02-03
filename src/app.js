@@ -83,6 +83,7 @@ function pauseVideo() {
 const infoNodeContainer = document.createElement("div");
 infoNodeContainer.id = 'infoNodeContainer';
 const notificationNode = document.createElement("p");
+notificationNode.id = 'notificationNode' // used to observe the amount of images taken
 notificationNode.innerText = 'select a number to begin'; // startup message
 root.appendChild(infoNodeContainer);
 infoNodeContainer.appendChild(notificationNode)
@@ -115,14 +116,18 @@ trainingsWorker.addEventListener('message', (event) => {
 
 const pausePlayButton = document.createElement('button');
 pausePlayButton.setAttribute('type', 'button');
-pausePlayButton.onclick = (event) => {
 
-  if (event.target.innerText === 'play') {
+pausePlayButton.onclick = (event) => {
+  if (event.target.innerText === 'start') {
     event.target.innerText = 'stop';
+
     return playVideo();
   }
 
+  // so we stop
   event.target.innerText = 'start';
+
+  // stop recording
   stopDetector();
   pauseVideo();
 };
@@ -139,3 +144,31 @@ root.appendChild(footer);
 (async function () {
   await initializeLogin(footer);
 })();
+
+
+
+// Select the node that will be observed for mutations
+const targetNode = document.getElementById('notificationNode');
+
+// Options for the observer (which mutations to observe)
+const config = { attributes: true, childList: true, subtree: true };
+
+// Callback function to execute when mutations are observed
+const callback = function (mutationsList, observer) {
+  // Use traditional 'for loops' for IE 11
+  for (let mutation of mutationsList) {
+
+    // TODO: how many pictures?
+    // stop the video after a couple of pictures
+    if (mutation.target.innerText.startsWith('150')) {
+      // programaticly click on the pause button
+      pausePlayButton.click();
+    }
+  }
+};
+
+// Create an observer instance linked to the callback function
+const observer = new MutationObserver(callback);
+
+// Start observing the target node for configured mutations
+observer.observe(targetNode, config);

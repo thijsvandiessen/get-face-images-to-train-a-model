@@ -52,16 +52,16 @@ self.onmessage = async (message) => {
   // Generate a date object to create a unique file name
   const date = new Date();
 
-  // the name of the glasses, to append 
+  // the name of the glasses, to append
+  // TODO: store also the amount of glasses? Maybe not possible
   const url = `https://storage.googleapis.com/upload/storage/v1/b/grv-test-upload-image/o?uploadType=media&name=glasses_number__${productCounter}-time-${date.getTime()}.png`;
 
   try {
     // sent images to google
     postData(url, blob).then((data) => {
       if (!data.ok) throw data;
-
-      self.postMessage(data.url)
-
+      // success message
+      return self.postMessage(data.url)
     });
   } catch (error) {
     console.error(error);

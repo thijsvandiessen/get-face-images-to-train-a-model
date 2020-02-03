@@ -1,10 +1,10 @@
 /*
  * Detect faces with help of a worker.
- * If A traingingsworker is provided images will sent to google
+ * If a traingingsworker is provided images will sent to google
  *
  * @param videostream - required
  * @param worker - worker that can return predictions
- * @param trainingsworker - worker that can process images
+ * @param trainingsworker - optional worker that can process images
  * 
  * returns a unit8ClampedArray / imageData object
  */
