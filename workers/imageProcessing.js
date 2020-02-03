@@ -54,7 +54,7 @@ self.onmessage = async (message) => {
 
   // the name of the glasses, to append
   // TODO: store also the amount of glasses? Maybe not possible
-  const url = `https://storage.googleapis.com/upload/storage/v1/b/grv-test-upload-image/o?uploadType=media&name=glasses_number__${productCounter}-time-${date.getTime()}.png`;
+  const url = `https://storage.googleapis.com/upload/storage/v1/b/mvp-training-images/o?uploadType=media&name=glasses_number__${productCounter}-time-${date.getTime()}.png`;
 
   try {
     // sent images to google
